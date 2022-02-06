@@ -38,24 +38,24 @@ function CreateAccount() {
     if (!validate(password, "Password")) return;
     ctx.users.push({ name, email, password, balance: 0 });
     setShow(false);
+    ctx.login = true;
   }
 
   function handleLogin() {
     console.log(ctx.log);
-
-    const elementIndex = ctx.users.findIndex(
-      (item) => item.email == email && item.password == password
-    );
-    ctx.users.splice(elementIndex, 1);
-    ctx.users.splice(0, 0, {
-      name: name,
-      email: email,
-      password: password,
-      balance: 0,
-    });
-    ctx.log = true;
-    console.log(ctx.log);
-    setLogin(true);
+    if (ctx.login) {
+      const elementIndex = ctx.users.findIndex(
+        (item) => item.email == email && item.password == password
+      );
+      ctx.users.splice(elementIndex, 1);
+      ctx.users.splice(0, 0, {
+        name: name,
+        email: email,
+        password: password,
+        balance: 0,
+      });
+      ctx.log = true;
+    } else return;
   }
 
   // function clearForm() {
@@ -68,7 +68,10 @@ function CreateAccount() {
 
   return (
     <>
-      {ctx.users[0].name != "" && show ? (
+      {ctx.users[0].name != "" &&
+      ctx.users[0].email != "" &&
+      ctx.users[0].password != "" &&
+      show ? (
         <>
           <Row>
             <Col className="text-end">

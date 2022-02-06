@@ -26,6 +26,7 @@ function App() {
               },
             ],
             log: false,
+            login: false,
           }}
         >
           <div
@@ -51,6 +52,15 @@ function App() {
                 <Route path="/login/" element={<Login />} />
                 <Route path="/logout/" element={<Logout />} />
               </Routes>
+            </div>
+            <div className="row bg-primary">
+              <div
+                className="col"
+                style={{
+                  width: "100%",
+                  height: "6px",
+                }}
+              ></div>
             </div>
             <Footer />
           </div>

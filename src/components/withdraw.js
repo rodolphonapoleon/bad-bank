@@ -4,6 +4,7 @@ import { UserContext } from "../context";
 import LoginButton from "./loginbutton";
 import { LoginUser } from "./login";
 import { Row, Col } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Withdraw() {
   const [show, setShow] = useState(true);
@@ -58,18 +59,23 @@ function Withdraw() {
               <LoginButton />
             </Col>
           </Row>
-          <h1>You have to Login</h1>
+          <div className="text-center fs-4 mt-5">
+            Please <span className="fw-bold">log in</span> to be able to make a
+            withdraw. <br />
+            If you don't have an account,{" "}
+            <NavLink to="/createaccount/">create one</NavLink> for free.
+          </div>
         </>
       ) : (
         <>
-          <div className="text-end">{ctx.users[0].name}</div>
+          <div className="text-end text-uppercase">{ctx.users[0].name}</div>
           <Row>
             <Col className="text-end">
               <LoginButton />
             </Col>
           </Row>
           <Card
-            style={{ maxWidth: "25rem", marginTop: "8rem" }}
+            style={{ maxWidth: "25rem", marginTop: "4rem" }}
             bgcolor="dark"
             header="Make a Withdraw"
             status={status}

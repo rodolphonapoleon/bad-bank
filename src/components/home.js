@@ -11,7 +11,7 @@ function Home() {
   const ctx = useContext(UserContext);
   return (
     <>
-      <div className="text-end">{ctx.users[0].name}</div>
+      <div className="text-end text-uppercase">{ctx.users[0].name}</div>
       <Row>
         <Col className="text-end">
           <LoginButton />

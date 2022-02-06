@@ -32,11 +32,6 @@ export default function Footer() {
                   Careers
                 </a>
               </li>
-              <li className="list-unstyled">
-                <a href="#!" className="text-decoration-none text-muted">
-                  Partner with us
-                </a>
-              </li>
             </ul>
           </Col>
           <Col md="4">
@@ -66,11 +61,6 @@ export default function Footer() {
                   Press Room
                 </a>
               </li>
-              <li className="list-unstyled">
-                <a href="#!" className="text-decoration-none text-muted">
-                  Videos
-                </a>
-              </li>
             </ul>
           </Col>
           <Col md="4">
@@ -87,7 +77,7 @@ export default function Footer() {
               </li>
               <li className="list-unstyled">
                 <a href="#!" className="text-decoration-none text-muted">
-                  Product Login
+                  Customer service
                 </a>
               </li>
               <li className="list-unstyled">
@@ -107,9 +97,29 @@ export default function Footer() {
           </Col>
         </Row>
       </Container>
-      <Container fluid className="text-center py-3 text-muted">
-        &copy; {new Date().getFullYear()} Copyright: BadBank, LLC. All rights
-        reserved. All trademarks are the property of their respective owners.
+      <hr />
+
+      <Container fluid className="pb-4">
+        <Row className="text-center justify-content-center text-muted fw-light">
+          <Col md={8}>
+            <a href="#!" className="text-decoration-none text-muted">
+              Security
+            </a>{" "}
+            |{" "}
+            <a href="#!" className="text-decoration-none text-muted">
+              Terms and Conditions
+            </a>{" "}
+            |{" "}
+            <a href="#!" className="text-decoration-none text-muted">
+              Privacy Policy
+            </a>
+          </Col>
+          <Col md={8}>
+            &copy; {new Date().getFullYear()} Copyright: BadBank, LLC. All
+            rights reserved. All trademarks are the property of their respective
+            owners.
+          </Col>
+        </Row>
       </Container>
     </footer>
   );

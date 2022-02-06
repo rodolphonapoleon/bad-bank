@@ -17,7 +17,6 @@ const menuItems = [
 ];
 
 function NavBar() {
-  const [login, setLogin] = useState(false);
   return (
     <>
       <nav
@@ -26,7 +25,7 @@ function NavBar() {
       >
         <div className="container-fluid ms-5">
           <NavLink to="/" className="navbar-brand fs-2 fw-bold">
-            BadBank
+            Bad<span className="text-primary">Bank</span>
           </NavLink>
           <button
             className="navbar-toggler"
