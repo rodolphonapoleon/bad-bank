@@ -3,9 +3,20 @@ import banner from "../bank.png";
 import belfoto from "../belpic.jpg";
 import { Image, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../context";
+import LoginButton from "./loginbutton";
+
 function Home() {
+  const ctx = useContext(UserContext);
   return (
     <>
+      <div className="text-end">{ctx.users[0].name}</div>
+      <Row>
+        <Col className="text-end">
+          <LoginButton />
+        </Col>
+      </Row>
       <div className="card mt-3">
         <div className="row g-0 text-center">
           <div className="col-md-6 bg-primary">
@@ -41,7 +52,10 @@ function Home() {
             found people have saved, on average, 2x more when they’ve used our
             smart savings tools.
           </p>
-          <Link to="/createaccount" className="btn btn-primary">
+          <Link
+            to="/createaccount"
+            className="btn btn-primary rounded-pill fs-5 px-3"
+          >
             Create an Account
           </Link>
         </div>

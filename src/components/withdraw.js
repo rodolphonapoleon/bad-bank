@@ -1,6 +1,9 @@
 import { useState, useContext } from "react";
 import Card from "../context";
 import { UserContext } from "../context";
+import LoginButton from "./loginbutton";
+import { LoginUser } from "./login";
+import { Row, Col } from "react-bootstrap";
 
 function Withdraw() {
   const [show, setShow] = useState(true);
@@ -47,58 +50,79 @@ function Withdraw() {
   }
 
   return (
-    <Card
-      style={{ maxWidth: "25rem", marginTop: "8rem" }}
-      bgcolor="dark"
-      header="Make a Withdraw"
-      status={status}
-      body={
-        show ? (
-          <>
-            <h3>Balance: ${ctx.users[0].balance}</h3>
-            <br />
-            Withdraw Amount
-            <br />
-            <input
-              type="input"
-              className="form-control"
-              id="amount"
-              placeholder="Enter amount"
-              value={amount}
-              onChange={(e) => {
-                setAmount(e.currentTarget.value);
-                setIsdisabled(false);
-                if (!e.currentTarget.value) setIsdisabled(true);
-              }}
-            />
-            <br />
-            <button
-              disabled={isDisabled ? true : false}
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleWithdraw}
-            >
-              Withdraw
-            </button>
-          </>
-        ) : (
-          <>
-            <h5 className="fs-2">Success</h5>
-            <br />
-            <h5>You have withdrawed ${amount} </h5>
-            <div>Your balance is now ${ctx.users[0].balance} </div>
-            <br />
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={clearForm}
-            >
-              Make another withdraw
-            </button>
-          </>
-        )
-      }
-    />
+    <>
+      {ctx.users[0].name == "" ? (
+        <>
+          <Row>
+            <Col className="text-end">
+              <LoginButton />
+            </Col>
+          </Row>
+          <h1>You have to Login</h1>
+        </>
+      ) : (
+        <>
+          <div className="text-end">{ctx.users[0].name}</div>
+          <Row>
+            <Col className="text-end">
+              <LoginButton />
+            </Col>
+          </Row>
+          <Card
+            style={{ maxWidth: "25rem", marginTop: "8rem" }}
+            bgcolor="dark"
+            header="Make a Withdraw"
+            status={status}
+            body={
+              show ? (
+                <>
+                  <h3>Balance: ${ctx.users[0].balance}</h3>
+                  <br />
+                  Withdraw Amount
+                  <br />
+                  <input
+                    type="input"
+                    className="form-control"
+                    id="amount"
+                    placeholder="Enter amount"
+                    value={amount}
+                    onChange={(e) => {
+                      setAmount(e.currentTarget.value);
+                      setIsdisabled(false);
+                      if (!e.currentTarget.value) setIsdisabled(true);
+                    }}
+                  />
+                  <br />
+                  <button
+                    disabled={isDisabled ? true : false}
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={handleWithdraw}
+                  >
+                    Withdraw
+                  </button>
+                </>
+              ) : (
+                <>
+                  <h5 className="fs-2">Success</h5>
+                  <br />
+                  <h5>You have withdrawed ${amount} </h5>
+                  <div>Your balance is now ${ctx.users[0].balance} </div>
+                  <br />
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={clearForm}
+                  >
+                    Make another withdraw
+                  </button>
+                </>
+              )
+            }
+          />
+        </>
+      )}
+    </>
   );
 }
 

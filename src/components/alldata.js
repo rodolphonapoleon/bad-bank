@@ -6,13 +6,15 @@ function AllData() {
   const ctx = useContext(UserContext);
 
   const TableBody = () => {
-    const rows = ctx.users.map((row, index) => {
+    const userdata = ctx.users.filter((item) => item.name != "");
+    const rows = userdata.map((row, index) => {
       return (
         <tr key={index}>
           <th scope="row">{index + 1}</th>
           <td>{row.name}</td>
           <td>{row.email}</td>
           <td>{row.password}</td>
+          <td>{row.balance}</td>
         </tr>
       );
     });
@@ -28,6 +30,7 @@ function AllData() {
           <th scope="col">Name</th>
           <th scope="col">Email</th>
           <th scope="col">Password</th>
+          <th scope="col">Balance</th>
         </tr>
       </thead>
     );

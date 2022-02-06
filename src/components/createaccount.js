@@ -1,6 +1,10 @@
+import React from "react";
 import { useState, useContext } from "react";
 import Card from "../context";
 import { UserContext } from "../context";
+import { NavLink } from "react-router-dom";
+import LoginButton from "./loginbutton";
+import { Row, Col } from "react-bootstrap";
 
 function CreateAccount() {
   const [show, setShow] = useState(true);
@@ -9,6 +13,7 @@ function CreateAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDisabled, setIsdisabled] = useState(true);
+  const [login, setLogin] = useState(false);
   const ctx = useContext(UserContext);
 
   function validate(field, label) {
@@ -31,95 +36,152 @@ function CreateAccount() {
     if (!validate(name, "Name")) return;
     if (!validate(email, "Email")) return;
     if (!validate(password, "Password")) return;
-    ctx.users.push({ name, email, password, balance: 100 });
+    ctx.users.push({ name, email, password, balance: 0 });
     setShow(false);
   }
 
-  function clearForm() {
-    setName("");
-    setEmail("");
-    setPassword("");
-    setIsdisabled(true);
-    setShow(true);
+  function handleLogin() {
+    console.log(ctx.log);
+
+    const elementIndex = ctx.users.findIndex(
+      (item) => item.email == email && item.password == password
+    );
+    ctx.users.splice(elementIndex, 1);
+    ctx.users.splice(0, 0, {
+      name: name,
+      email: email,
+      password: password,
+      balance: 0,
+    });
+    ctx.log = true;
+    console.log(ctx.log);
+    setLogin(true);
   }
+
+  // function clearForm() {
+  //   setName("");
+  //   setEmail("");
+  //   setPassword("");
+  //   setIsdisabled(true);
+  //   setShow(true);
+  // }
 
   return (
     <>
-      <div>Let's create your a</div>
-      <Card
-        style={{ maxWidth: "25rem", marginTop: "8rem" }}
-        bgcolor="dark"
-        header="Create Account"
-        status={status}
-        body={
-          show ? (
+      {ctx.users[0].name != "" && show ? (
+        <>
+          <Row>
+            <Col className="text-end">
+              <LoginButton />
+            </Col>
+          </Row>
+          <h1>You have to logout to be able to create another account</h1>
+        </>
+      ) : (
+        <>
+          <Row>
+            <Col className="text-end">
+              <LoginButton />
+            </Col>
+          </Row>
+
+          {show ? (
             <>
-              <label>Name</label>
-              <input
-                type="input"
-                className="form-control"
-                id="name"
-                placeholder="Enter name"
-                value={name}
-                onChange={(e) => {
-                  setName(e.currentTarget.value);
-                  setIsdisabled(false);
-                  if (!e.currentTarget.value) setIsdisabled(true);
-                }}
+              <div className="fs-1 mt-4 text-center text-primary">
+                Let's create your account
+              </div>
+
+              <Card
+                style={{ maxWidth: "25rem", marginTop: "3rem" }}
+                bgcolor="dark"
+                header="Create Account"
+                status={status}
+                body={
+                  <>
+                    <label htmlFor="name">Name</label>
+                    <input
+                      type="input"
+                      className="form-control"
+                      id="name"
+                      placeholder="Enter name"
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.currentTarget.value);
+                        setIsdisabled(false);
+                        if (!e.currentTarget.value) setIsdisabled(true);
+                      }}
+                    />
+                    <br />
+                    <label htmlFor="email">Email address</label>
+                    <input
+                      type="input"
+                      className="form-control"
+                      id="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.currentTarget.value);
+                        setIsdisabled(false);
+                        if (!e.currentTarget.value) setIsdisabled(true);
+                      }}
+                    />
+                    <br />
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder="Enter password"
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.currentTarget.value);
+                        setIsdisabled(false);
+                        if (!e.currentTarget.value) setIsdisabled(true);
+                      }}
+                    />
+                    <br />
+                    <button
+                      disabled={isDisabled ? true : false}
+                      type="submit"
+                      className="btn btn-primary"
+                      onClick={() => {
+                        handleCreate();
+                        handleLogin();
+                      }}
+                    >
+                      Create Account
+                    </button>
+                  </>
+                }
               />
-              <br />
-              <label>Email address</label>
-              <input
-                type="input"
-                className="form-control"
-                id="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.currentTarget.value);
-                  setIsdisabled(false);
-                  if (!e.currentTarget.value) setIsdisabled(true);
-                }}
-              />
-              <br />
-              <label>Password</label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.currentTarget.value);
-                  setIsdisabled(false);
-                  if (!e.currentTarget.value) setIsdisabled(true);
-                }}
-              />
-              <br />
-              <button
-                disabled={isDisabled ? true : false}
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleCreate}
-              >
-                Create Account
-              </button>
             </>
           ) : (
             <>
-              <h5 className="fs-2">Success</h5>
-              <br />
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={clearForm}
-              >
-                Add another account
-              </button>
+              <div className="fs-1 mt-4 text-center text-primary">
+                Congratulations, {ctx.users[0].name}
+              </div>
+              <Card
+                style={{ maxWidth: "25rem", marginTop: "3rem" }}
+                bgcolor="dark"
+                header="Create Account"
+                status={status}
+                body={
+                  <>
+                    <h5 className="fs-2">Success</h5>
+                    <br />
+                    <NavLink
+                      to="/deposit"
+                      className="btn btn-primary rounded-pill ms-4"
+                    >
+                      Make your first deposit
+                    </NavLink>
+                  </>
+                }
+              />
             </>
-          )
-        }
-      />
+          )}
+        </>
+      )}
     </>
   );
 }
