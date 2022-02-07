@@ -30,7 +30,6 @@ function App() {
           }}
         >
           <div
-            className=""
             style={{
               backgroundColor: "#F0F8FF",
               display: "flex",

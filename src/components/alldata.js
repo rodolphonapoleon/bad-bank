@@ -41,10 +41,12 @@ function AllData() {
       txtcolor="dark"
       header="All data"
       body={
-        <table className="table table-striped">
-          <TableHeader />
-          <TableBody />
-        </table>
+        <div className="table-responsive">
+          <table className="table table-striped">
+            <TableHeader />
+            <TableBody />
+          </table>
+        </div>
       }
     />
   );

@@ -69,92 +69,120 @@ function Home() {
         Online banking is changing the industry
       </div>
 
-      <div className="card-group">
-        <div
-          className="card border-0 shadow-lg"
-          style={{ width: "16rem", margin: "5% auto" }}
-        >
-          <img src={pic2} className="card-img-top" alt="music event project" />
-          <div className="card-body">
-            <h5 className="card-title">
-              How Online-Only Banks Stack up Against Traditional Institutions
-            </h5>
-            <p className="card-text">
-              <small>By BRIAN BEERS, Reviewed by EBONY HOWARD</small>
-              <br />
-              <br />
-              Figuring out where to bank starts with a decision about the type
-              of institution you want. Do you prefer a bank with
-              brick-and-mortar branches and its own automated teller machines
-              (ATMs) or an online-only alternative that gives you a purely
-              online or mobile banking experience...
-            </p>
-            <p className="text-end">
-              <a
-                href="https://www.investopedia.com/articles/pf/11/benefits-and-drawbacks-of-internet-banks.asp"
-                className="text-primary mt-3"
-                target="_blank"
-              >
-                Continue reading
-              </a>
-            </p>
+      <div className="row my-4 g-4">
+        <div className="col-md-4">
+          <div
+            className="card border-0 shadow-lg h-100"
+            style={{ width: "20rem", margin: "0 auto" }}
+          >
+            <img
+              src={pic2}
+              className="card-img-top"
+              alt="music event project"
+            />
+            <div
+              className="card-body"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <h5 className="card-title">
+                How Online-Only Banks Stack up Against Traditional Institutions
+              </h5>
+              <p className="card-text" style={{ flex: 1 }}>
+                <small>By BRIAN BEERS, Reviewed by EBONY HOWARD</small>
+                <br />
+                <br />
+                Figuring out where to bank starts with a decision about the type
+                of institution you want. Do you prefer a bank with
+                brick-and-mortar branches and its own automated teller machines
+                (ATMs) or an online-only alternative that gives you a purely
+                online or mobile banking experience...
+              </p>
+              <p className="text-end">
+                <a
+                  href="https://www.investopedia.com/articles/pf/11/benefits-and-drawbacks-of-internet-banks.asp"
+                  className="text-primary mt-3"
+                  target="_blank"
+                >
+                  Continue reading
+                </a>
+              </p>
+            </div>
           </div>
         </div>
-        <div
-          className="card border-0 mx-5 shadow-lg"
-          style={{ width: "16rem", margin: "5% auto" }}
-        >
-          <img src={pic3} className="card-img-top" alt="music event project" />
-          <div className="card-body">
-            <h5 className="card-title">5 Benefits Of Digital Banking</h5>
-            <p className="card-text">
-              <small>By MITCH STROHM</small>
-              <br />
-              <br />
-              The global pandemic may have brought the significance of digital
-              banking platforms to the surface, but mobile and online banking
-              aren’t new. “The pandemic has merely accelerated a phenomenon that
-              was already taking place,” says Kevin Cohee, owner, chairman and
-              CEO of OneUnited Bank...
-            </p>
-            <p className="text-end">
-              <a
-                href="https://www.forbes.com/advisor/banking/benefits-of-digital-banking/"
-                className="text-primary mt-3"
-                target="_blank"
-              >
-                Continue reading
-              </a>
-            </p>
+        <div className="col-md-4">
+          <div
+            className="card border-0 shadow-lg h-100"
+            style={{ width: "20rem", margin: "0 auto" }}
+          >
+            <img
+              src={pic3}
+              className="card-img-top"
+              alt="music event project"
+            />
+            <div
+              className="card-body"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <h5 className="card-title">5 Benefits Of Digital Banking</h5>
+              <p className="card-text" style={{ flex: 1 }}>
+                <small>By MITCH STROHM</small>
+                <br />
+                <br />
+                The global pandemic may have brought the significance of digital
+                banking platforms to the surface, but mobile and online banking
+                aren’t new. “The pandemic has merely accelerated a phenomenon
+                that was already taking place,” says Kevin Cohee, owner,
+                chairman and CEO of OneUnited Bank...
+              </p>
+              <p className="text-end">
+                <a
+                  href="https://www.forbes.com/advisor/banking/benefits-of-digital-banking/"
+                  className="text-primary mt-3"
+                  target="_blank"
+                >
+                  Continue reading
+                </a>
+              </p>
+            </div>
           </div>
         </div>
-        <div
-          className="card border-0 shadow-lg"
-          style={{ width: "16rem", margin: "5% auto" }}
-        >
-          <img src={pic1} className="card-img-top" alt="music event project" />
-          <div className="card-body">
-            <h5 className="card-title">
-              e-Banking Adoption: An Opportunity for Customer Value Co-creation
-            </h5>
-            <p className="card-text">
-              <small>By Rocio Carranza, Estrella Diaz, Carlos Sanchez</small>
-              <br />
-              <br />
-              The development of information and communication technologies
-              offers innovative opportunities to establish business strategies
-              focused on customer value co-creation. This situation is
-              especially notable in the banking industry...
-            </p>
-            <p className="text-end">
-              <a
-                href="https://www.frontiersin.org/articles/10.3389/fpsyg.2020.621248/full"
-                className="text-primary mt-3"
-                target="_blank"
-              >
-                Continue reading
-              </a>
-            </p>
+        <div className="col-md-4">
+          <div
+            className="card border-0 shadow-lg h-100"
+            style={{ width: "20rem", margin: "0 auto" }}
+          >
+            <img
+              src={pic1}
+              className="card-img-top"
+              alt="music event project"
+            />
+            <div
+              className="card-body"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <h5 className="card-title">
+                e-Banking Adoption: An Opportunity for Customer Value
+                Co-creation
+              </h5>
+              <p className="card-text" style={{ flex: 1 }}>
+                <small>By Rocio Carranza, Estrella Diaz, Carlos Sanchez</small>
+                <br />
+                <br />
+                The development of information and communication technologies
+                offers innovative opportunities to establish business strategies
+                focused on customer value co-creation. This situation is
+                especially notable in the banking industry...
+              </p>
+              <p className="text-end">
+                <a
+                  href="https://www.frontiersin.org/articles/10.3389/fpsyg.2020.621248/full"
+                  className="text-primary mt-3"
+                  target="_blank"
+                >
+                  Continue reading
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

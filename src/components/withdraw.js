@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import Card from "../context";
 import { UserContext } from "../context";
 import LoginButton from "./loginbutton";
-import { LoginUser } from "./login";
 import { Row, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
@@ -15,8 +14,6 @@ function Withdraw() {
 
   function validate(field) {
     if (Number(field) != field) {
-      // setStatus("Error: " + label);
-      // setTimeout(() => setStatus(""), 3000);
       alert("Input not valid. You have to enter a number");
       clearForm();
       return false;

@@ -13,14 +13,11 @@ function CreateAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDisabled, setIsdisabled] = useState(true);
-  const [login, setLogin] = useState(false);
   const ctx = useContext(UserContext);
 
   function validate(field, label) {
     if (!field) {
       alert(`${label} is required. You can't leave it blank.`);
-      // setStatus("Error: " + label);
-      // setTimeout(() => setStatus(""), 3000);
       return false;
     }
     if (field === password && password.length < 8) {
@@ -39,8 +36,6 @@ function CreateAccount() {
   }
 
   function handleCreate() {
-    console.log(name, email, password);
-    console.log(password.length);
     if (!validate(name, "Name")) {
       ctx.login = false;
       return;
@@ -59,7 +54,6 @@ function CreateAccount() {
   }
 
   function handleLogin() {
-    console.log(ctx.log);
     if (ctx.login) {
       const elementIndex = ctx.users.findIndex(
         (item) => item.email == email && item.password == password

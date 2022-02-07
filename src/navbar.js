@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useState } from "react";
-import LoginButton from "./components/loginbutton";
 
 const menuItems = [
   { name: "Home", path: "/", description: "Home" },
