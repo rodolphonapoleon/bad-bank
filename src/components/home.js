@@ -20,27 +20,20 @@ function Home() {
           <LoginButton />
         </Col>
       </Row>
-      <div className="card mt-3">
-        <div className="row g-0 text-center">
-          <div className="col-md-6 bg-primary">
-            <Card
-              style={{ maxWidth: "18rem" }}
-              txtcolor="white"
-              bgcolor="primary"
-              title="Welcome to BadBank"
-              text="The best online banking in US"
-              body={
-                <Image
-                  src={banner}
-                  className="img-fluid"
-                  alt="Responsive image"
-                />
-              }
-            />
-          </div>
-          <div className="col-md-6">
-            <Image src={belfoto} className="img-fluid" alt="image" />
-          </div>
+
+      <div className="row g-0 text-center mt-3">
+        <div className="col-md-6 bg-primary">
+          <Card
+            style={{ maxWidth: "18rem" }}
+            txtcolor="white"
+            bgcolor="primary"
+            title="Welcome to BadBank"
+            text="The best online banking in US"
+            body={<Image src={banner} className="img-fluid" alt="Bank image" />}
+          />
+        </div>
+        <div className="col-md-6">
+          <Image src={belfoto} className="img-fluid" alt="image" />
         </div>
       </div>
       <div className="card text-center border-0 shadow-sm">
@@ -76,17 +69,17 @@ function Home() {
         Online banking is changing the industry
       </div>
 
-      <div class="card-group">
+      <div className="card-group">
         <div
-          class="card border-0 shadow-lg"
+          className="card border-0 shadow-lg"
           style={{ width: "16rem", margin: "5% auto" }}
         >
-          <img src={pic2} class="card-img-top" alt="music event project" />
-          <div class="card-body">
-            <h5 class="card-title">
+          <img src={pic2} className="card-img-top" alt="music event project" />
+          <div className="card-body">
+            <h5 className="card-title">
               How Online-Only Banks Stack up Against Traditional Institutions
             </h5>
-            <p class="card-text">
+            <p className="card-text">
               <small>By BRIAN BEERS, Reviewed by EBONY HOWARD</small>
               <br />
               <br />
@@ -108,13 +101,13 @@ function Home() {
           </div>
         </div>
         <div
-          class="card border-0 mx-5 shadow-lg"
+          className="card border-0 mx-5 shadow-lg"
           style={{ width: "16rem", margin: "5% auto" }}
         >
-          <img src={pic3} class="card-img-top" alt="music event project" />
-          <div class="card-body">
-            <h5 class="card-title">5 Benefits Of Digital Banking</h5>
-            <p class="card-text">
+          <img src={pic3} className="card-img-top" alt="music event project" />
+          <div className="card-body">
+            <h5 className="card-title">5 Benefits Of Digital Banking</h5>
+            <p className="card-text">
               <small>By MITCH STROHM</small>
               <br />
               <br />
@@ -136,15 +129,15 @@ function Home() {
           </div>
         </div>
         <div
-          class="card border-0 shadow-lg"
+          className="card border-0 shadow-lg"
           style={{ width: "16rem", margin: "5% auto" }}
         >
-          <img src={pic1} class="card-img-top" alt="music event project" />
-          <div class="card-body">
-            <h5 class="card-title">
+          <img src={pic1} className="card-img-top" alt="music event project" />
+          <div className="card-body">
+            <h5 className="card-title">
               e-Banking Adoption: An Opportunity for Customer Value Co-creation
             </h5>
-            <p class="card-text">
+            <p className="card-text">
               <small>By Rocio Carranza, Estrella Diaz, Carlos Sanchez</small>
               <br />
               <br />
