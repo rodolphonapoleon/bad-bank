@@ -74,13 +74,13 @@ function Withdraw() {
               <LoginButton />
             </Col>
           </Row>
-          <Card
-            style={{ maxWidth: "25rem", marginTop: "4rem" }}
-            bgcolor="dark"
-            header="Make a Withdraw"
-            status={status}
-            body={
-              show ? (
+          {show ? (
+            <Card
+              style={{ maxWidth: "25rem", marginTop: "4rem" }}
+              bgcolor="dark"
+              header="Make a Withdraw"
+              status={status}
+              body={
                 <>
                   <h3>Balance: ${ctx.users[0].balance}</h3>
                   <br />
@@ -108,9 +108,17 @@ function Withdraw() {
                     Withdraw
                   </button>
                 </>
-              ) : (
+              }
+            />
+          ) : (
+            <Card
+              style={{ maxWidth: "25rem", marginTop: "4rem" }}
+              bgcolor="dark"
+              header="Withdraw"
+              status={status}
+              body={
                 <>
-                  <h5 className="fs-2">Success</h5>
+                  <h5 className="fs-2 text-primary">Success</h5>
                   <br />
                   <h5>You have withdrawed ${amount} </h5>
                   <div>Your balance is now ${ctx.users[0].balance} </div>
@@ -123,9 +131,9 @@ function Withdraw() {
                     Make another withdraw
                   </button>
                 </>
-              )
-            }
-          />
+              }
+            />
+          )}
         </>
       )}
     </>

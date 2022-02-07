@@ -27,15 +27,32 @@ function CreateAccount() {
       alert("Password must be at least 8 characters");
       return false;
     }
+    if (field === email) {
+      let checkEmail = ctx.users.filter((item) => email == item.email);
+      if (checkEmail.length == 1) {
+        alert("The email you entered is associated to an existing account");
+        clearForm();
+        return false;
+      }
+    }
     return true;
   }
 
   function handleCreate() {
     console.log(name, email, password);
     console.log(password.length);
-    if (!validate(name, "Name")) return;
-    if (!validate(email, "Email")) return;
-    if (!validate(password, "Password")) return;
+    if (!validate(name, "Name")) {
+      ctx.login = false;
+      return;
+    }
+    if (!validate(email, "Email")) {
+      ctx.login = false;
+      return;
+    }
+    if (!validate(password, "Password")) {
+      ctx.login = false;
+      return;
+    }
     ctx.users.push({ name, email, password, balance: 0 });
     setShow(false);
     ctx.login = true;
@@ -58,13 +75,10 @@ function CreateAccount() {
     } else return;
   }
 
-  // function clearForm() {
-  //   setName("");
-  //   setEmail("");
-  //   setPassword("");
-  //   setIsdisabled(true);
-  //   setShow(true);
-  // }
+  function clearForm() {
+    setEmail("");
+    setPassword("");
+  }
 
   return (
     <>
@@ -73,12 +87,16 @@ function CreateAccount() {
       ctx.users[0].password != "" &&
       show ? (
         <>
+          <div className="text-end text-uppercase">{ctx.users[0].name}</div>
           <Row>
             <Col className="text-end">
               <LoginButton />
             </Col>
           </Row>
-          <h1>You have to logout to be able to create another account</h1>
+          <div className="text-center fs-4 mt-5">
+            Please <span className="fw-bold">log out</span> to be able to create
+            another account.
+          </div>
         </>
       ) : (
         <>
@@ -142,6 +160,9 @@ function CreateAccount() {
                         if (!e.currentTarget.value) setIsdisabled(true);
                       }}
                     />
+                    <div className="form-text">
+                      Password must be at least 8 characters long.
+                    </div>
                     <br />
                     <button
                       disabled={isDisabled ? true : false}
@@ -172,10 +193,7 @@ function CreateAccount() {
                   <>
                     <h5 className="fs-2">Success</h5>
                     <br />
-                    <NavLink
-                      to="/deposit"
-                      className="btn btn-primary rounded-pill ms-4"
-                    >
+                    <NavLink to="/deposit" className="btn btn-primary ms-4">
                       Make your first deposit
                     </NavLink>
                   </>

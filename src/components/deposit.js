@@ -66,13 +66,13 @@ function Deposit() {
               <LoginButton />
             </Col>
           </Row>
-          <Card
-            style={{ maxWidth: "25rem", marginTop: "4rem" }}
-            bgcolor="dark"
-            header="Make a deposit"
-            status={status}
-            body={
-              show ? (
+          {show ? (
+            <Card
+              style={{ maxWidth: "25rem", marginTop: "4rem" }}
+              bgcolor="dark"
+              header="Make a deposit"
+              status={status}
+              body={
                 <>
                   <h3>Balance: ${ctx.users[0].balance}</h3>
                   <br />
@@ -100,9 +100,17 @@ function Deposit() {
                     Deposit
                   </button>
                 </>
-              ) : (
+              }
+            />
+          ) : (
+            <Card
+              style={{ maxWidth: "25rem", marginTop: "4rem" }}
+              bgcolor="dark"
+              header="Deposit"
+              status={status}
+              body={
                 <>
-                  <h5 className="fs-2">Success</h5>
+                  <h5 className="fs-2 text-primary">Success</h5>
                   <br />
                   <h5>You have deposited ${amount} </h5>
                   <div>Your balance is now ${ctx.users[0].balance} </div>
@@ -115,9 +123,9 @@ function Deposit() {
                     Make another deposit
                   </button>
                 </>
-              )
-            }
-          />
+              }
+            />
+          )}
         </>
       )}
     </>

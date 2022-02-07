@@ -2,12 +2,19 @@ import { useState, useContext } from "react";
 import Card from "../context";
 import { UserContext } from "../context";
 import { NavLink } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import LoginButton from "./loginbutton";
 
 export const LoginUser = ({ user }) => {
   return (
     <>
-      <h3>Welcome {user.name}</h3>
-      <h5>Your balance is: ${user.balance}</h5>
+      <h3>
+        Welcome back <span className="text-primary">{user.name}</span>
+      </h3>
+      <br />
+      <h5>
+        Your balance is: <span className="fw-bold">${user.balance}</span>
+      </h5>
     </>
   );
 };
@@ -110,23 +117,37 @@ function Login() {
           }
         />
       ) : (
-        <Card
-          style={{ maxWidth: "25rem", marginTop: "8rem" }}
-          bgcolor="dark"
-          status={status}
-          body={
-            <>
-              <LoginUser user={user} />
-              <br />
-              <NavLink to="/deposit" className="btn btn-primary rounded-pill">
-                Make a deposit
-              </NavLink>
-              <NavLink to="/withdraw" className="btn btn-primary rounded-pill">
-                Make a withdraw
-              </NavLink>
-            </>
-          }
-        />
+        <>
+          <div className="text-end text-uppercase">{ctx.users[0].name}</div>
+          <Row>
+            <Col className="text-end">
+              <LoginButton />
+            </Col>
+          </Row>
+          <Card
+            style={{ maxWidth: "25rem", marginTop: "4rem" }}
+            bgcolor="dark"
+            status={status}
+            body={
+              <>
+                <LoginUser user={user} />
+                <br />
+                <Row className="text-center">
+                  <Col>
+                    <NavLink to="/deposit" className="btn btn-primary">
+                      Make a deposit
+                    </NavLink>
+                  </Col>
+                  <Col>
+                    <NavLink to="/withdraw" className="btn btn-primary">
+                      Make a withdraw
+                    </NavLink>
+                  </Col>
+                </Row>
+              </>
+            }
+          />
+        </>
       )}
     </>
   );
