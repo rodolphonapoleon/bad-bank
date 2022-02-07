@@ -43,8 +43,11 @@ function App() {
               style={{ padding: "20px", flex: 1 }}
             >
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/CreateAccount/" element={<CreateAccount />} />
+                <Route path="/bad-bank/" element={<Home />} />
+                <Route
+                  path="/bad-bank/CreateAccount/"
+                  element={<CreateAccount />}
+                />
                 <Route path="/deposit/" element={<Deposit />} />
                 <Route path="/withdraw/" element={<Withdraw />} />
                 <Route path="/alldata/" element={<AllData />} />
